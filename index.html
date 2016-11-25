@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CurrencyConverter">
+<head>
+	<meta charset="UTF-8">
+	<title>Currency Converter in Angular</title>
+	<link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="row">
+		<div class="col-xs-5 col-sm-5 col-md-5 col-md-offset-3">
+			<div class="panel panel-default" ng-controller="ConverterCtrl">
+				<div class="panel-body">
+					<form action="" method="POST" role="form">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h4>Currency Converter</h4>
+							<label for="">Type in amount and select currency:</label>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="form-group">
+								<input type="text"
+									class="form-control" placeholder="0.00"
+									ng-model="fromValue" ng-change="rateConvert()">
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="form-group">
+								<select ng-model="fromType"
+									class="form-control" required ng-change="rateConvert()"
+									ng-options="k for (k, v) in rates track by v">
+									<option value="">--Select--</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<label for="">Converted amount:</label>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="form-group">
+								<input type="text"
+									class="form-control" placeholder="0.00"
+									ng-model="toValue" ng-change="rateConvert()">
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="form-group">
+								<select ng-model="toType"
+									class="form-control" required ng-change="rateConvert()"
+									ng-options="k for (k, v) in rates track by v">
+									<option value="">--Select--</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
